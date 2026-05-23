@@ -1,0 +1,37 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+ENV_NAME="personal-website-ruby"
+SITE_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+
+cd "$SITE_DIR"
+
+if ! command -v conda >/dev/null 2>&1; then
+  echo "Conda was not found in this shell."
+  echo "Open a terminal where conda is available, then run:"
+  echo "  cd $SITE_DIR"
+  echo "  ./.preview"
+  exit 1
+fi
+
+ENV_PREFIX="$(conda env list | awk -v env="$ENV_NAME" '$1 == env {print $NF}')"
+
+if [ -z "$ENV_PREFIX" ]; then
+  echo "Conda environment '$ENV_NAME' was not found."
+  echo "Create it first with:"
+  echo "  conda create -n $ENV_NAME -c conda-forge ruby=3.3 c-compiler cxx-compiler make pkg-config"
+  exit 1
+fi
+
+conda run -n "$ENV_NAME" bundle config set --local path 'vendor/bundle'
+conda run -n "$ENV_NAME" bundle config set --local build.eventmachine "--with-openssl-dir=$ENV_PREFIX"
+
+if ! conda run -n "$ENV_NAME" bundle check >/dev/null 2>&1; then
+  echo "Installing missing Ruby gems into vendor/bundle..."
+  conda run -n "$ENV_NAME" bundle install
+fi
+
+echo "Starting local preview at http://localhost:4000"
+echo "Press Ctrl+C to stop the preview server."
+
+conda run --no-capture-output -n "$ENV_NAME" bundle exec jekyll serve -l -H localhost

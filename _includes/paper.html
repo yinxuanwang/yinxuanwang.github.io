@@ -1,0 +1,16 @@
+<div class="research-item">
+  <p class="paper-title">{{ include.title }}</p>
+
+  {% if include.coauthors or include.status or include.draft_url %}
+    <p class="paper-meta">
+      {% if include.coauthors %}with <em>{{ include.coauthors }}</em>. {% endif %}{% if include.draft_url %}<a href="{{ include.draft_url }}">Draft</a>. {% endif %}{% if include.status %}{{ include.status }}. {% endif %}
+    </p>
+  {% endif %}
+
+  {% if include.abstract %}
+    <details>
+      <summary>Abstract</summary>
+      <p>{{ include.abstract }}</p>
+    </details>
+  {% endif %}
+</div>
