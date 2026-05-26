@@ -9,7 +9,7 @@ redirect_from:
   - /about.html
 ---
 
-Hi! I am a PhD candidate at the Wilf Family Department of Politics at New York University.
+Hello! I am a PhD candidate at the Wilf Family Department of Politics at New York University.
 
 My research centers on quantitative political methodology, with a focus on computational and statistical methods for analyzing text, images, and other forms of unstructured data. I develop tools for measuring political quantities that are only indirectly observed and for drawing valid inferences from computationally generated measures. In a related substantive agenda, I study elite political behavior in authoritarian contexts, across historical and contemporary settings.
 
