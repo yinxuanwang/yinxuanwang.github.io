@@ -1,6 +1,7 @@
 ---
 permalink: /
 title: "Yinxuan Wang"
+description: "PhD candidate at the Wilf Family Department of Politics at New York University."
 author_profile: true
 classes: home
 redirect_from:
