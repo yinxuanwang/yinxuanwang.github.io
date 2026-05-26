@@ -47,6 +47,21 @@ layout: default
       <section class="page__content" itemprop="text">
         {{ content }}
 
+        {% if page.url == "/" %}
+          <nav class="home-mobile-contact" aria-label="Contact links">
+            {% if site.author.email %}
+              <a href="mailto:{{ site.author.email }}" aria-label="Email">
+                <i class="fas fa-fw fa-envelope" aria-hidden="true"></i>
+              </a>
+            {% endif %}
+            {% if site.author.github %}
+              <a href="https://github.com/{{ site.author.github }}" aria-label="GitHub">
+                <i class="fab fa-fw fa-github" aria-hidden="true"></i>
+              </a>
+            {% endif %}
+          </nav>
+        {% endif %}
+
         {% if page.citation and page.paperurl and page.slidesurl and page.bibtexurl %}
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% elsif page.citation and page.paperurl and page.slidesurl %}

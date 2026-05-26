@@ -14,6 +14,17 @@
     {% endif %}
   </div>
 
+  <nav class="author__mobile-nav" aria-label="Primary">
+    {% for link in site.data.navigation.main %}
+      {% if link.url contains 'http' %}
+        {% assign domain = '' %}
+      {% else %}
+        {% assign domain = base_path %}
+      {% endif %}
+      <a href="{{ domain }}{{ link.url }}">{{ link.title }}</a>
+    {% endfor %}
+  </nav>
+
   <div class="author__content">
     <h3 class="author__name">{{ author.name }}</h3>
     {% if author.pronouns %}<p class="author__pronouns">{{ author.pronouns }}</p>{% endif %}

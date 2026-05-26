@@ -81,6 +81,11 @@ body.home .sidebar .author__avatar img {
   margin-top: 0;
 }
 
+.author__mobile-nav,
+.home-mobile-contact {
+  display: none;
+}
+
 @include breakpoint($large) {
   body.home .sidebar {
     width: 21%;
@@ -112,6 +117,117 @@ body.home .sidebar .author__avatar img {
 
 body.home .page__content {
   max-width: 900px;
+}
+
+@include breakpoint(max-width $large) {
+  body.home {
+    padding-bottom: 1.5rem;
+
+    .page__footer {
+      display: none;
+    }
+
+    #main {
+      display: flex;
+      flex-direction: column;
+      margin-top: 0;
+      padding: 2rem 1.25rem 1.5rem;
+    }
+
+    .sidebar {
+      margin: 0 0 1.5rem;
+      width: 100%;
+    }
+
+    .sidebar > div {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+    }
+
+    .sidebar .author__avatar {
+      width: auto;
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar .author__avatar img {
+      max-width: 112px;
+    }
+
+    .author__mobile-nav {
+      display: flex !important;
+      flex-direction: column;
+      align-items: center;
+      width: 100%;
+      max-width: 430px;
+      justify-content: center;
+      gap: 0.7rem;
+      font-family: $sans-serif;
+      font-size: 1.08rem;
+      line-height: 1.2;
+    }
+
+    .author__mobile-nav a {
+      display: block;
+      width: fit-content;
+      color: var(--global-masthead-link-color);
+      text-decoration: none;
+      text-align: center;
+    }
+
+    .author__mobile-nav a:hover {
+      color: var(--global-masthead-link-color-hover);
+      text-decoration: underline;
+    }
+
+    .author__content,
+    .author__urls-wrapper,
+    .home-desktop-contact {
+      display: none !important;
+    }
+
+    .author__urls {
+      display: none !important;
+    }
+
+    .page {
+      width: 100%;
+    }
+
+    .page__content {
+      max-width: 680px;
+      margin: 0 auto;
+      font-size: 0.96em;
+      line-height: 1.6;
+    }
+
+    .home-mobile-contact {
+      display: flex !important;
+      justify-content: center;
+      align-items: center;
+      gap: 1.35rem;
+      margin-top: 2.25rem;
+      padding-top: 0.25rem;
+      width: 100%;
+      text-align: center;
+    }
+
+    .home-mobile-contact a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--site-accent-color);
+      font-size: 1.75rem;
+      line-height: 1;
+      text-decoration: none;
+    }
+
+    .home-mobile-contact a:hover {
+      color: var(--site-accent-color-hover);
+      text-decoration: none;
+    }
+  }
 }
 
 .research-list {

@@ -17,3 +17,4 @@ Substantively, I study elite political behavior in authoritarian contexts, in bo
 Before joining NYU, I earned an M.A. in International Relations from Johns Hopkins SAIS, as well as a B.S. in Applied and Computational Mathematics and a B.A. in International Relations and the Global Economy from the University of Southern California.
 
 You can reach me at [yinxuan.wang@nyu.edu](mailto:yinxuan.wang@nyu.edu).
+{: .home-desktop-contact }
